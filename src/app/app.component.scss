@@ -11,47 +11,7 @@ $white: #ffffff;
 $headerFonts: "Roboto Condensed", sans-serif;
 
 /* end of variables */
-$dark: #212121;
-$light: #efefef;
-$color: #b3e5fc;
 
-@mixin btn($left, $top) {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  top: $top;
-  left: $left;
-  transition-duration: 0.5s;
-}
-
-@mixin icon($height, $width) {
-  transition-duration: 0.5s;
-  position: absolute;
-  height: $height;
-  width: $width;
-  top: 30px;
-  background-color: $dark;
-}
-
-@mixin icon-before($height, $width, $top) {
-  transition-duration: 0.5s;
-  position: absolute;
-  width: $width;
-  height: $height;
-  background-color: $dark;
-  content: "";
-  top: $top;
-}
-
-@mixin icon-after($height, $width, $top) {
-  transition-duration: 0.5s;
-  position: absolute;
-  width: $width;
-  height: $height;
-  background-color: $dark;
-  content: "";
-  top: $top;
-}
 main {
   nav {
     padding: 1rem;
@@ -80,6 +40,30 @@ main {
         }
       }
     }
+
+    .button-wrapper {
+      z-index: 9;
+      .btn {
+        width: 100%;
+        padding: 0.9rem;
+        cursor: pointer;
+
+        .lines {
+          position: relative;
+          width: 1.8rem;
+          margin-top: 2px;
+          border-radius: 10px;
+          background-color: $primaryColor;
+          height: 0.25rem;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .line1,
+        .line3 {
+          width: 1.3rem;
+        }
+      }
+    }
   }
 
   .slider-wrapper {
@@ -94,23 +78,25 @@ main {
   }
 }
 
-.btn1 {
-  @include btn(0px, 100px);
+/* animations */
 
-  .icon-left {
-    @include icon(8px, 30px);
-    left: 0px;
+#toggle:checked + .btn {
+  .line1 {
+    transform: rotate(-45deg);
+    margin-top: 0px;
+    width: 2rem;
+    top: 10px;
+  }
 
-    &:before {
-      @include icon-before(8px, 30px, -20px);
-    }
+  .line2 {
+    opacity: 0;
+    transform: rotate(40deg);
+  }
 
-    &:after {
-      @include icon-after(8px, 30px, 20px);
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
+  .line3 {
+    transform: rotate(45deg);
+    margin-top: -7px;
+    margin-bottom: 8px;
+    width: 2rem;
   }
 }
