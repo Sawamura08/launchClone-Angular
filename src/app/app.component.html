@@ -7,18 +7,25 @@
   </head>
   <body>
     <main class="w-full min-h-screen relative">
-      <nav class="w-full bg-slate-200 absolute top-0">
+      <nav class="w-full nav absolute top-0">
         <div class="logo-wrapper flex w-3/4">
           <img src="../assets/img/logo.png" alt="" class="logo" />
           <div class="logo-name">
             <h2>Launch</h2>
-            <h3>BUSINESS SERVICES</h3>
+            <h3 class="business">BUSINESS SERVICES</h3>
           </div>
         </div>
         <section
           class="button-wrapper absolute top-4 right-2 p-2 rounded-full bg-white"
         >
-          <input type="checkbox" name="" id="toggle" class="hidden" />
+          <input
+            type="checkbox"
+            name=""
+            id="toggle"
+            class="hidden"
+            [checked]="isChecked"
+            (change)="try()"
+          />
           <label
             for="toggle"
             class="btn flex flex-col justify-center items-center gap-1"
@@ -29,6 +36,17 @@
           </label>
         </section>
       </nav>
+      <ul
+        class="flex flex-col justify-center text-center list-none link-wrapper w-full p-4 gap-4"
+      >
+        <li class="links"><a href="#">Home</a></li>
+        <li class="links"><a href="#">Services</a></li>
+        <li class="links"><a href="#">Mission</a></li>
+        <li class="links"><a href="#">Gallery</a></li>
+        <li class="links"><a href="#">Goals</a></li>
+        <li class="links"><a href="#">Blogs</a></li>
+        <li class="links"><a href="#">Contact Us</a></li>
+      </ul>
       <div class="slider-wrapper">
         <section class="slides slide1 w-full h-screen"></section>
       </div>

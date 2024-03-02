@@ -14,11 +14,12 @@ $headerFonts: "Roboto Condensed", sans-serif;
 
 main {
   nav {
-    padding: 1rem;
-    z-index: 9;
+    z-index: 2;
     background-color: transparent;
+    transition: all 1s ease-in-out;
 
     .logo-wrapper {
+      padding: 1rem 0 1rem 1rem;
       .logo {
         width: clamp(3rem, 2vw, 20%);
       }
@@ -66,6 +67,25 @@ main {
     }
   }
 
+  .link-wrapper {
+    z-index: 1;
+    position: absolute;
+    top: -100%;
+    background-color: white;
+    transition: all 0.8s ease-in-out;
+    padding-block: 1rem;
+
+    .links {
+      font-size: 1.2rem;
+      color: $primaryColor;
+      font-weight: 500;
+    }
+  }
+
+  .animation-links {
+    top: 5rem;
+  }
+
   .slider-wrapper {
     .slides {
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -80,12 +100,12 @@ main {
 
 /* animations */
 
-#toggle:checked + .btn {
+#toggle:checked ~ .btn {
   .line1 {
     transform: rotate(-45deg);
     margin-top: 0px;
-    width: 2rem;
-    top: 10px;
+    width: 1.8rem;
+    top: 11px;
   }
 
   .line2 {
@@ -96,7 +116,23 @@ main {
   .line3 {
     transform: rotate(45deg);
     margin-top: -7px;
-    margin-bottom: 8px;
-    width: 2rem;
+    margin-bottom: 11px;
+    width: 1.8rem;
   }
 }
+
+/* media queries */
+
+@media all and (width >= 820px) {
+  .button-wrapper {
+    display: none;
+  }
+
+  .link-wrapper {
+    flex-direction: row;
+    top: 0 !important;
+    z-index: 1;
+  }
+}
+
+/* end of media queries */
