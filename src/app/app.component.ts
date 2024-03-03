@@ -11,7 +11,7 @@ export class AppComponent {
 
   isChecked: boolean = false;
 
-  try = () => {
+  menuBar = () => {
     const linkWrapper = this.el.nativeElement.querySelector('.link-wrapper');
     const nav = this.el.nativeElement.querySelector('.nav');
     const h3 = this.el.nativeElement.querySelector('.business');
@@ -25,5 +25,16 @@ export class AppComponent {
       this.render.setStyle(nav, 'background-color', 'transparent');
       this.render.setStyle(h3, 'color', 'white');
     }
+  };
+
+  slideBg = () => {
+    const index: number = 2;
+
+    const prev = this.el.nativeElement.querySelector('.slide1');
+    const next = this.el.nativeElement.querySelector('.slide2');
+
+    this.render.setStyle(prev, 'transform', 'translateX(-100%)');
+    this.render.setStyle(prev, 'opacity', '0.8');
+    this.render.setStyle(next, 'transform', 'translateX(-100%)');
   };
 }

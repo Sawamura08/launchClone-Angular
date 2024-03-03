@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.1-web/css/all.min.css"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
@@ -24,7 +28,7 @@
             id="toggle"
             class="hidden"
             [checked]="isChecked"
-            (change)="try()"
+            (change)="menuBar()"
           />
           <label
             for="toggle"
@@ -39,16 +43,19 @@
       <ul
         class="flex flex-col justify-center text-center list-none link-wrapper w-full p-4 gap-4"
       >
-        <li class="links"><a href="#">Home</a></li>
-        <li class="links"><a href="#">Services</a></li>
-        <li class="links"><a href="#">Mission</a></li>
-        <li class="links"><a href="#">Gallery</a></li>
-        <li class="links"><a href="#">Goals</a></li>
-        <li class="links"><a href="#">Blogs</a></li>
-        <li class="links"><a href="#">Contact Us</a></li>
+        <li><a href="#" class="links cursor-pointer">Home</a></li>
+        <li><a href="#" class="links">Services</a></li>
+        <li><a href="#" class="links">Mission</a></li>
+        <li><a href="#" class="links">Gallery</a></li>
+        <li><a href="#" class="links">Goals</a></li>
+        <li><a href="#" class="links">Blogs</a></li>
+        <li><a href="#" class="links">Contact Us</a></li>
       </ul>
       <div class="slider-wrapper">
-        <section class="slides slide1 w-full h-screen"></section>
+        <i class="fa-thin fa-circle-arrow-left left" (click)="slideBg()"></i>
+        <i class="fa-thin fa-circle-arrow-right right"></i>
+        <section class="slides slide1 min-w-full h-screen"></section>
+        <section class="slides slide2 min-w-full h-screen"></section>
       </div>
     </main>
   </body>
