@@ -1,13 +1,24 @@
-import { Component, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  Renderer2,
+  OnInit,
+} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(private el: ElementRef, private render: Renderer2) {}
   title = 'launchClone';
+  ngOnInit(): void {
+    /* setInterval(() => {
+      this.slideBg('right');
+    }, 5000); */
+  }
 
   isChecked: boolean = false;
 
@@ -29,16 +40,16 @@ export class AppComponent {
 
   /* slider background */
 
-  slides: any[] = ['slide1', 'slide2', 'slide3'];
+  slides: number = 3;
   currentIndex: any = 0;
 
   slideBg = (direction: string) => {
     this.currentIndex =
       direction === 'left'
-        ? (this.currentIndex - 1 + this.slides.length) % this.slides.length
-        : (this.currentIndex + 1) % this.slides.length;
-
+        ? (this.currentIndex - 1 + this.slides) % this.slides
+        : (this.currentIndex + 1) % this.slides;
     const wrapper = this.el.nativeElement.querySelectorAll('.slides');
+
     wrapper.forEach((wrap: any) => {
       this.render.setStyle(
         wrap,
@@ -46,11 +57,5 @@ export class AppComponent {
         `translateX(-${this.currentIndex * 100}%)`
       );
     });
-
-    console.log(this.currentIndex);
-  };
-
-  slideClasses = (index: number) => {
-    return `${this.slides[index]}`;
   };
 }

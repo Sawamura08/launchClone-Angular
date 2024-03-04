@@ -53,19 +53,32 @@
       </ul>
       <div class="slider-wrapper">
         <i
-          class="fa-thin fa-circle-arrow-left left"
+          class="fa-thin fa-circle-arrow-left left arrows"
           (click)="slideBg('left')"
         ></i>
         <i
-          class="fa-thin fa-circle-arrow-right right"
+          class="fa-thin fa-circle-arrow-right right arrows"
           (click)="slideBg('right')"
         ></i>
 
-        <section
-          class="slides min-w-full h-screen"
-          *ngFor="let slide of slides; let i = index"
-          [class]="slideClasses(i)"
-        ></section>
+        <section class="slides slide1">
+          <div
+            class="slide-content w-full flex flex-col justify-center items-center"
+          >
+            <h4 class="welcome">Welcome at Launch!</h4>
+            <h1 class="title">Marketing Services</h1>
+            <p class="context">
+              We empower businesses to thrive in a dynamic marketplace,
+              providing a comprehensive suite of services designed to elevate
+              your performance and achieve your strategic goals.
+            </p>
+            <button class="btn">
+              Get Started <span><i class="fa-light fa-arrow-down"></i></span>
+            </button>
+          </div>
+        </section>
+        <section class="slides slide2"></section>
+        <section class="slides slide3"></section>
       </div>
     </main>
   </body>
