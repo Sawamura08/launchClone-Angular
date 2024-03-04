@@ -92,7 +92,7 @@ main {
     position: relative;
     display: flex;
     transition: all 1s ease-in-out;
-    overflow: hidden;
+    overflow: scroll;
 
     i {
       position: absolute;
@@ -137,6 +137,15 @@ main {
     .slide2 {
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
         url("../assets/img/bg2.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .slide3 {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("../assets/img/bg3.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;

@@ -52,10 +52,20 @@
         <li><a href="#" class="links">Contact Us</a></li>
       </ul>
       <div class="slider-wrapper">
-        <i class="fa-thin fa-circle-arrow-left left" (click)="slideBg()"></i>
-        <i class="fa-thin fa-circle-arrow-right right"></i>
-        <section class="slides slide1 min-w-full h-screen"></section>
-        <section class="slides slide2 min-w-full h-screen"></section>
+        <i
+          class="fa-thin fa-circle-arrow-left left"
+          (click)="slideBg('left')"
+        ></i>
+        <i
+          class="fa-thin fa-circle-arrow-right right"
+          (click)="slideBg('right')"
+        ></i>
+
+        <section
+          class="slides min-w-full h-screen"
+          *ngFor="let slide of slides; let i = index"
+          [class]="slideClasses(i)"
+        ></section>
       </div>
     </main>
   </body>

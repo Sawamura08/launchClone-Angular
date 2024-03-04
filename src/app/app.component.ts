@@ -27,14 +27,30 @@ export class AppComponent {
     }
   };
 
-  slideBg = () => {
-    const index: number = 2;
+  /* slider background */
 
-    const prev = this.el.nativeElement.querySelector('.slide1');
-    const next = this.el.nativeElement.querySelector('.slide2');
+  slides: any[] = ['slide1', 'slide2', 'slide3'];
+  currentIndex: any = 0;
 
-    this.render.setStyle(prev, 'transform', 'translateX(-100%)');
-    this.render.setStyle(prev, 'opacity', '0.8');
-    this.render.setStyle(next, 'transform', 'translateX(-100%)');
+  slideBg = (direction: string) => {
+    this.currentIndex =
+      direction === 'left'
+        ? (this.currentIndex - 1 + this.slides.length) % this.slides.length
+        : (this.currentIndex + 1) % this.slides.length;
+
+    const wrapper = this.el.nativeElement.querySelectorAll('.slides');
+    wrapper.forEach((wrap: any) => {
+      this.render.setStyle(
+        wrap,
+        'transform',
+        `translateX(-${this.currentIndex * 100}%)`
+      );
+    });
+
+    console.log(this.currentIndex);
+  };
+
+  slideClasses = (index: number) => {
+    return `${this.slides[index]}`;
   };
 }
