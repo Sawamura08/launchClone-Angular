@@ -58,4 +58,8 @@ export class AppComponent implements OnInit {
       );
     });
   };
+
+  click = () => {
+    alert('hello');
+  };
 }

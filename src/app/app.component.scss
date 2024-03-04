@@ -13,8 +13,9 @@ $headerFonts: "Roboto Condensed", sans-serif;
 /* end of variables */
 
 main {
+  min-height: 100dvh;
   nav {
-    z-index: 2;
+    z-index: 1;
     background-color: transparent;
     transition: all 1s ease-in-out;
 
@@ -34,6 +35,7 @@ main {
           color: $primaryColor;
           font-family: $headerFonts;
           cursor: pointer;
+          width: 100%;
         }
         h3 {
           font-size: clamp(0.7rem, 0.8vw, 3rem);
@@ -44,7 +46,7 @@ main {
     }
 
     .button-wrapper {
-      z-index: 9;
+      z-index: 3;
       .btn {
         width: 100%;
         padding: 0.9rem;
@@ -69,7 +71,7 @@ main {
   }
 
   .link-wrapper {
-    z-index: 1;
+    z-index: 3;
     position: absolute;
     top: -100%;
     background-color: white;
@@ -81,6 +83,14 @@ main {
       font-size: 1.2rem;
       color: $primaryColor;
       font-weight: 500;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        background: -webkit-linear-gradient($white, $primaryColor, $white);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2rem;
+      }
     }
   }
 
@@ -146,7 +156,7 @@ main {
         }
 
         .context {
-          width: clamp(17rem, 50vw, 30%);
+          width: clamp(17rem, 50%, 30%);
           text-align: center;
           font-size: clamp(1rem, 1.5vw, 1.75rem);
           line-height: 1.5;
@@ -160,7 +170,7 @@ main {
           padding: 0.5rem 1rem;
           border-radius: 1rem;
           cursor: pointer;
-          width: clamp(12rem, 20%, 8rem);
+          width: clamp(12rem, 20%, 12rem);
           font-size: clamp(1.25rem, 1.5vw, 2rem);
           font-weight: 600;
           border: transparent;
@@ -188,7 +198,7 @@ main {
     }
 
     .slide1 {
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
         url("../assets/img/bg1.jpg");
       background-size: cover;
       background-position: center;
@@ -241,22 +251,50 @@ main {
 
 /* media queries */
 
-@media all and (min-width: 820px) {
-  nav {
+/* small tablet width >= 480*/
+
+@media all and (min-width: 480px) {
+  main .slider-wrapper {
+    .slides {
+      .slide-content {
+        .context {
+          width: 70%;
+        }
+
+        .title {
+          font-size: 6vw;
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 768px) {
+  main nav {
     background-color: transparent;
+    .logo-wrapper {
+      .logo-name {
+        width: 30%;
+      }
+    }
   }
   .button-wrapper {
     display: none;
   }
 
   main .link-wrapper {
+    width: 70%;
     flex-direction: row;
+    justify-content: flex-end;
     top: 0;
+    right: 1rem;
+    line-height: 2.5;
     z-index: 1;
     background-color: transparent;
 
     .links {
       color: white;
+      font-size: 1rem;
     }
   }
 }

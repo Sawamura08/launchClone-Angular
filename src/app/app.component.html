@@ -10,7 +10,7 @@
     <title>Document</title>
   </head>
   <body>
-    <main class="w-full min-h-screen relative">
+    <main class="w-full relative">
       <nav class="w-full nav absolute top-0">
         <div class="logo-wrapper flex w-3/4">
           <img src="../assets/img/logo.png" alt="" class="logo" />
@@ -43,7 +43,7 @@
       <ul
         class="flex flex-col justify-center text-center list-none link-wrapper w-full p-4 gap-4"
       >
-        <li><a href="#" class="links cursor-pointer">Home</a></li>
+        <li><a href="#home" class="links" (click)="click()">Home</a></li>
         <li><a href="#" class="links">Services</a></li>
         <li><a href="#" class="links">Mission</a></li>
         <li><a href="#" class="links">Gallery</a></li>
@@ -51,7 +51,7 @@
         <li><a href="#" class="links">Blogs</a></li>
         <li><a href="#" class="links">Contact Us</a></li>
       </ul>
-      <div class="slider-wrapper">
+      <div class="slider-wrapper" id="home">
         <i
           class="fa-thin fa-circle-arrow-left left arrows"
           (click)="slideBg('left')"
@@ -77,8 +77,40 @@
             </button>
           </div>
         </section>
-        <section class="slides slide2"></section>
-        <section class="slides slide3"></section>
+        <section class="slides slide2">
+          <div
+            class="slide-content w-full flex flex-col justify-center items-center"
+          >
+            <h4 class="welcome">Welcome at Launch!</h4>
+            <h1 class="title">Business Services</h1>
+            <h3 class="sub-title">Expertise. Innovation. Partnership.</h3>
+            <p class="context">
+              We empower businesses to thrive in a dynamic marketplace,
+              providing a comprehensive suite of services designed to elevate
+              your performance and achieve your strategic goals.
+            </p>
+            <button class="btn">
+              Get Started <span><i class="fa-light fa-arrow-down"></i></span>
+            </button>
+          </div>
+        </section>
+        <section class="slides slide3">
+          <div
+            class="slide-content w-full flex flex-col justify-center items-center"
+          >
+            <h4 class="welcome">Welcome at Launch!</h4>
+            <h1 class="title">Sales Services</h1>
+            <h3 class="sub-title">Expertise. Innovation. Partnership.</h3>
+            <p class="context">
+              We empower businesses to thrive in a dynamic marketplace,
+              providing a comprehensive suite of services designed to elevate
+              your performance and achieve your strategic goals.
+            </p>
+            <button class="btn">
+              Get Started <span><i class="fa-light fa-arrow-down"></i></span>
+            </button>
+          </div>
+        </section>
       </div>
     </main>
   </body>
