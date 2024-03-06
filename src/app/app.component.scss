@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Flow+Rounded&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 * {
-  padding: 0;
-  margin: 0;
+  /*   padding: 0;
+  margin: 0; */
   box-sizing: border-box;
 }
 /* variables */
@@ -49,7 +49,7 @@ main {
       z-index: 3;
       .btn {
         width: 100%;
-        padding: 0.9rem;
+        padding: 0.5rem;
         cursor: pointer;
 
         .lines {
@@ -83,14 +83,6 @@ main {
       font-size: 1.2rem;
       color: $primaryColor;
       font-weight: 500;
-      transition: all 0.5s ease-in-out;
-
-      &:hover {
-        background: -webkit-linear-gradient($white, $primaryColor, $white);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 2rem;
-      }
     }
   }
 
@@ -224,6 +216,34 @@ main {
       position: relative;
     }
   }
+
+  .service-container {
+    .services {
+      height: 50vh;
+      padding: 2rem;
+      margin-block: 2rem;
+      .service-icon {
+        width: 30%;
+      }
+      .service-title {
+        color: $primaryColor;
+        font-size: clamp(2rem, 1.5vw, 100%);
+      }
+      .service-def {
+        font-size: clamp(1.1rem, 1vw, 100%);
+        text-align: center;
+        opacity: 0.7;
+        margin-block: 1rem;
+        width: 80%;
+      }
+      .service-btn {
+        background-color: $primaryColor;
+        color: $white;
+        font-size: clamp(1rem, 1.5vw, 100%);
+        margin-top: 2rem;
+      }
+    }
+  }
 }
 
 /* animations */
@@ -287,14 +307,37 @@ main {
     flex-direction: row;
     justify-content: flex-end;
     top: 0;
-    right: 1rem;
-    line-height: 2.5;
+    right: 1.5rem;
+    line-height: 3;
     z-index: 1;
     background-color: transparent;
 
     .links {
       color: white;
       font-size: 1rem;
+      transition: all 1s ease-in-out;
+
+      &:hover {
+        background: -webkit-linear-gradient($white, $primaryColor, $white);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1024px) {
+  main {
+    nav {
+      .logo-wrapper {
+        margin-left: 2rem;
+      }
+    }
+    .link-wrapper {
+      right: 2.5rem;
+      .links {
+        font-size: 1.25rem;
+      }
     }
   }
 }
