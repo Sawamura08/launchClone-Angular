@@ -11,7 +11,7 @@
   </head>
   <body>
     <main class="w-full relative">
-      <nav class="w-full nav absolute top-0">
+      <nav class="w-full nav absolute top-0" [class.scrolled]="isScrolled">
         <div class="logo-wrapper flex w-3/4">
           <img src="../assets/img/logo.png" alt="" class="logo" />
           <div class="logo-name">
@@ -39,18 +39,19 @@
             <div class="line3 lines"></div>
           </label>
         </section>
+        <ul
+          class="flex flex-col justify-center text-center list-none link-wrapper w-full p-4 gap-4"
+        >
+          <li><a href="#home" class="links">Home</a></li>
+          <li><a href="#" class="links">Services</a></li>
+          <li><a href="#" class="links">Mission</a></li>
+          <li><a href="#" class="links">Gallery</a></li>
+          <li><a href="#" class="links">Goals</a></li>
+          <li><a href="#" class="links">Blogs</a></li>
+          <li><a href="#" class="links">Contact Us</a></li>
+        </ul>
       </nav>
-      <ul
-        class="flex flex-col justify-center text-center list-none link-wrapper w-full p-4 gap-4"
-      >
-        <li><a href="#home" class="links">Home</a></li>
-        <li><a href="#" class="links">Services</a></li>
-        <li><a href="#" class="links">Mission</a></li>
-        <li><a href="#" class="links">Gallery</a></li>
-        <li><a href="#" class="links">Goals</a></li>
-        <li><a href="#" class="links">Blogs</a></li>
-        <li><a href="#" class="links">Contact Us</a></li>
-      </ul>
+
       <div class="slider-wrapper" id="home">
         <i
           class="fa-thin fa-circle-arrow-left left arrows"
