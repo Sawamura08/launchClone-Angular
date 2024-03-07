@@ -28,6 +28,16 @@ export class AppComponent implements OnInit {
 
     this.scrollService.scroll$.subscribe((isScrolled) => {
       this.isScrolled = isScrolled;
+      if (isScrolled) {
+        this.render.removeStyle(
+          this.el.nativeElement.querySelector('.nav'),
+          'background-color'
+        );
+        this.render.removeStyle(
+          this.el.nativeElement.querySelector('.business'),
+          'color'
+        );
+      }
     });
   }
 
@@ -42,11 +52,9 @@ export class AppComponent implements OnInit {
       this.render.addClass(linkWrapper, 'animation-links');
       this.render.setStyle(nav, 'background-color', 'white');
       this.render.setStyle(h3, 'color', 'black');
-    } else if (this.isScrolled) {
+    } else if (this.isScrolled && !this.isChecked) {
       this.render.removeClass(linkWrapper, 'animation-links');
-      this.scrollService.scroll$.subscribe((isScrolled) => {
-        this.isScrolled = isScrolled;
-      });
+      this.render.setStyle(h3, 'color', 'black');
       console.log(this.isScrolled);
     } else {
       this.render.removeClass(linkWrapper, 'animation-links');

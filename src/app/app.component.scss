@@ -14,6 +14,24 @@ $headerFonts: "Roboto Condensed", sans-serif;
 
 main {
   min-height: 100dvh;
+
+  nav.scrolled {
+    background-color: $white;
+    position: sticky;
+
+    .logo-wrapper {
+      .logo-name h3 {
+        color: black;
+      }
+    }
+
+    .button-wrapper {
+      background-color: $primaryColor;
+      .btn .lines {
+        background-color: $white;
+      }
+    }
+  }
   nav {
     z-index: 2;
     background-color: transparent;
@@ -66,24 +84,6 @@ main {
         .line3 {
           width: 1.3rem;
         }
-      }
-    }
-  }
-
-  nav.scrolled {
-    background-color: white;
-    position: sticky;
-
-    .logo-wrapper {
-      .logo-name h3 {
-        color: black;
-      }
-    }
-
-    .button-wrapper {
-      background-color: $primaryColor;
-      .btn .lines {
-        background-color: $white;
       }
     }
   }
@@ -339,6 +339,14 @@ main {
         background: -webkit-linear-gradient($white, $primaryColor, $white);
         background-clip: text;
         -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+
+  main nav.scrolled {
+    .link-wrapper {
+      .links {
+        color: $primaryColor;
       }
     }
   }
