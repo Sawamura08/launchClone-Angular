@@ -4,7 +4,9 @@ import {
   ElementRef,
   Renderer2,
   OnInit,
+  HostListener,
 } from '@angular/core';
+import { ScrollFunctionService } from './services/scroll-function.service';
 
 @Component({
   selector: 'app-root',
