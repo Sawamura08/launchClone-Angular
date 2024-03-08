@@ -18,6 +18,7 @@ main {
   nav.scrolled {
     background-color: $white;
     position: sticky;
+    border-bottom: 2px solid $primaryColor;
 
     .logo-wrapper {
       .logo-name h3 {
@@ -88,6 +89,15 @@ main {
     }
   }
 
+  .alternative-home-btn {
+    position: sticky;
+    top: 70%;
+    left: 1rem;
+    width: 10%;
+    z-index: 3;
+    color: black;
+  }
+
   .link-wrapper {
     z-index: -1;
     position: absolute;
@@ -109,6 +119,8 @@ main {
   }
 
   .slider-wrapper {
+    scroll-padding-top: 0;
+    scroll-snap-align: 0;
     position: relative;
     display: flex;
     transition: all 1s ease-in-out;
@@ -150,6 +162,7 @@ main {
       height: 100dvh;
 
       .slide-content {
+        scroll-behavior: smooth;
         color: white;
         height: 100dvh;
 
@@ -168,7 +181,7 @@ main {
         .context {
           width: clamp(17rem, 50%, 30%);
           text-align: center;
-          font-size: clamp(1rem, 1.5vw, 1.75rem);
+          font-size: clamp(0.9rem, 1.5vw, 1.75rem);
           line-height: 1.5;
           font-weight: 400;
           margin-bottom: clamp(2rem, 2vw, 2.5rem);
@@ -177,11 +190,11 @@ main {
         .btn {
           background-color: $primaryColor;
           color: white;
-          padding: 0.5rem 1rem;
+          padding: 0.5rem;
           border-radius: 1rem;
           cursor: pointer;
           width: clamp(12rem, 20%, 12rem);
-          font-size: clamp(1.25rem, 1.5vw, 2rem);
+          font-size: clamp(1rem, 1.5vw, 2rem);
           font-weight: 600;
           border: transparent;
           outline: none;
@@ -236,10 +249,13 @@ main {
   }
 
   .service-container {
+    scroll-padding-top: 0;
+    scroll-snap-align: 0;
     .services {
       height: 50vh;
       padding: 2rem;
       margin-block: 2rem;
+      width: 100%;
       .service-icon {
         width: 30%;
       }
@@ -305,6 +321,13 @@ main {
       }
     }
   }
+  main .service-container {
+    .services {
+      .service-icon {
+        width: 20%;
+      }
+    }
+  }
 }
 
 @media all and (min-width: 768px) {
@@ -346,7 +369,26 @@ main {
   main nav.scrolled {
     .link-wrapper {
       .links {
-        color: $primaryColor;
+        color: black;
+      }
+    }
+  }
+
+  main .service-container {
+    margin-block: 2rem;
+    justify-content: space-evenly;
+    height: 70vh;
+    .services {
+      min-height: 70vh;
+      width: 30%;
+      margin-block: 2rem;
+      padding: 2rem 0;
+      box-shadow: 0px 0px 10px #aaa;
+      .service-icon {
+        width: 35%;
+      }
+      .service-def {
+        font-size: 1rem;
       }
     }
   }

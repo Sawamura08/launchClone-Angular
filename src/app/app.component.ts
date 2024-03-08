@@ -26,6 +26,33 @@ export class AppComponent implements OnInit {
       this.slideBg('right');
     }, 5000); */
 
+    this.scrollNav();
+  }
+
+  isChecked: boolean = false;
+
+  menuBar = () => {
+    const linkWrapper = this.el.nativeElement.querySelector('.link-wrapper');
+    const nav = this.el.nativeElement.querySelector('.nav');
+    const h3 = this.el.nativeElement.querySelector('.business');
+    this.isChecked = !this.isChecked;
+    if (this.isChecked) {
+      this.render.addClass(linkWrapper, 'animation-links');
+      this.render.setStyle(nav, 'background-color', 'white');
+      this.render.setStyle(nav, 'border-bottom', '2px solid #0592fd');
+      this.render.setStyle(h3, 'color', 'black');
+    } else if (this.isScrolled && !this.isChecked) {
+      this.render.removeClass(linkWrapper, 'animation-links');
+      this.render.setStyle(h3, 'color', 'black');
+    } else {
+      this.render.removeClass(linkWrapper, 'animation-links');
+      this.render.setStyle(nav, 'background-color', 'transparent');
+      this.render.removeStyle(nav, 'border-bottom');
+      this.render.setStyle(h3, 'color', 'white');
+    }
+  };
+
+  private scrollNav = () => {
     this.scrollService.scroll$.subscribe((isScrolled) => {
       this.isScrolled = isScrolled;
       if (isScrolled) {
@@ -39,28 +66,6 @@ export class AppComponent implements OnInit {
         );
       }
     });
-  }
-
-  isChecked: boolean = false;
-
-  menuBar = () => {
-    const linkWrapper = this.el.nativeElement.querySelector('.link-wrapper');
-    const nav = this.el.nativeElement.querySelector('.nav');
-    const h3 = this.el.nativeElement.querySelector('.business');
-    this.isChecked = !this.isChecked;
-    if (this.isChecked) {
-      this.render.addClass(linkWrapper, 'animation-links');
-      this.render.setStyle(nav, 'background-color', 'white');
-      this.render.setStyle(h3, 'color', 'black');
-    } else if (this.isScrolled && !this.isChecked) {
-      this.render.removeClass(linkWrapper, 'animation-links');
-      this.render.setStyle(h3, 'color', 'black');
-      console.log(this.isScrolled);
-    } else {
-      this.render.removeClass(linkWrapper, 'animation-links');
-      this.render.setStyle(nav, 'background-color', 'transparent');
-      this.render.setStyle(h3, 'color', 'white');
-    }
   };
 
   /* slider background */
@@ -83,4 +88,17 @@ export class AppComponent implements OnInit {
       );
     });
   };
+
+  smoothScroll(sectionId: string): void {
+    const element = this.el.nativeElement.querySelector(`${sectionId}`);
+
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      const linkWrapper = this.el.nativeElement.querySelector('.link-wrapper');
+      this.isChecked = !this.isChecked;
+      const nav = this.el.nativeElement.querySelector('.nav');
+      this.render.removeClass(linkWrapper, 'animation-links');
+      this.render.removeStyle(nav, 'border-bottom');
+    }
+  }
 }

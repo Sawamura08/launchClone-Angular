@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,7 @@
     />
     <title>Document</title>
   </head>
-  <body>
+  <body class="scroll-smooth">
     <main class="w-full relative">
       <nav class="w-full nav absolute top-0" [class.scrolled]="isScrolled">
         <div class="logo-wrapper flex w-3/4">
@@ -42,8 +42,14 @@
         <ul
           class="flex flex-col justify-center text-center list-none link-wrapper w-full p-4 gap-4"
         >
-          <li><a href="#home" class="links">Home</a></li>
-          <li><a href="#" class="links">Services</a></li>
+          <li>
+            <button class="links" (click)="smoothScroll('#home')">Home</button>
+          </li>
+          <li>
+            <button class="links" (click)="smoothScroll('#service')">
+              Service
+            </button>
+          </li>
           <li><a href="#" class="links">Mission</a></li>
           <li><a href="#" class="links">Gallery</a></li>
           <li><a href="#" class="links">Goals</a></li>
@@ -51,6 +57,11 @@
           <li><a href="#" class="links">Contact Us</a></li>
         </ul>
       </nav>
+      <!-- <div class="alternative-home-btn">
+        <button class="home-btn">
+          <i class="fa-solid fa-caret-up">asdfas</i>
+        </button>
+      </div> -->
 
       <div class="slider-wrapper" id="home">
         <i
@@ -61,7 +72,6 @@
           class="fa-thin fa-circle-arrow-right right arrows"
           (click)="slideBg('right')"
         ></i>
-
         <section class="slides slide1">
           <div
             class="slide-content w-full flex flex-col justify-center items-center"
@@ -115,6 +125,7 @@
       </div>
       <section
         class="service-container flex flex-wrap gap-2 w-full p-4 bg-white leading-2"
+        id="service"
       >
         <div class="services flex flex-col justify-center items-center w-full">
           <img src="../assets/img/strategy.gif" class="service-icon" alt="" />
