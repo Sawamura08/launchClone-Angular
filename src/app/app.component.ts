@@ -93,7 +93,12 @@ export class AppComponent implements OnInit {
     const element = this.el.nativeElement.querySelector(`${sectionId}`);
 
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+        inline: 'nearest',
+        offset: { top: -50, left: 0 },
+      });
       const linkWrapper = this.el.nativeElement.querySelector('.link-wrapper');
       this.isChecked = !this.isChecked;
       const nav = this.el.nativeElement.querySelector('.nav');

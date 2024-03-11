@@ -319,7 +319,7 @@ main {
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      height: 50vh;
+      height: 50dvh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -331,7 +331,11 @@ main {
 
       figure {
         width: 80%;
-        border: 0.5rem solid $white;
+
+        img {
+          border: 0.5rem solid $white;
+          margin-inline: auto;
+        }
       }
     }
 
@@ -446,6 +450,18 @@ main {
   }
 
   main .reason-section {
+    .photo-wrapper {
+      max-width: 80%;
+      margin-inline: auto;
+      height: 60dvh;
+
+      figure {
+        max-width: 80%;
+        img {
+          max-width: 90%;
+        }
+      }
+    }
     .reason-wrapper {
       .reason-content {
         .features-list {
@@ -506,9 +522,9 @@ main {
   main .service-container {
     margin-block: 2rem;
     justify-content: space-evenly;
-    height: 70vh;
+    height: 50vh;
     .services {
-      min-height: 70vh;
+      height: 40vh;
       width: 30%;
       margin-block: 2rem;
       padding: 2rem 0;
@@ -521,9 +537,34 @@ main {
       }
     }
   }
+
+  main .reason-section {
+    flex-direction: row;
+    align-items: center;
+    .photo-wrapper {
+      max-width: 36%;
+      height: 27dvh;
+
+      figure {
+        max-width: 100%;
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .reason-wrapper {
+      width: 60%;
+
+      .reason-content {
+        width: 100%;
+      }
+    }
+  }
 }
 
-@media all and (min-width: 1024px) {
+@media all and (min-width: 1024px) and (orientation: landscape) {
   main {
     nav {
       .logo-wrapper {
@@ -539,10 +580,11 @@ main {
 
     .service-container {
       width: 90%;
-      margin: 0 auto;
+      margin: 3rem auto 0 auto;
+      height: 70vh;
       .services {
         width: 30%;
-        min-height: 60vh;
+        height: 50vh;
         margin-block: 1rem;
 
         .service-icon {
@@ -552,6 +594,12 @@ main {
         .service-btn {
           margin-top: 1rem;
         }
+      }
+    }
+
+    .reason-section {
+      .photo-wrapper {
+        height: 40dvh;
       }
     }
   }
