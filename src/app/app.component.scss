@@ -307,6 +307,7 @@ main {
   .reason-section {
     width: 100%;
     margin-top: clamp(2rem, 4rem, 100%);
+    margin-bottom: 2rem;
 
     .photo-wrapper {
       border-radius: 100% 0% 100% 0% / 46% 48% 52% 54%;
@@ -385,6 +386,55 @@ main {
 
       &:hover {
         @include buttonHover();
+      }
+    }
+  }
+
+  .mission-wrapper {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+      url("../assets/img/mission-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    margin-block: 3rem;
+    color: $white;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .mission {
+      gap: 1.5rem;
+      width: 100%;
+      padding: 1.2rem;
+
+      .mission-icon {
+        width: 100%;
+        text-align: center;
+        i {
+          font-size: clamp(4rem, 2vw, 100%);
+          margin-block: 1rem;
+          transition: all 0.5s ease-in-out;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+
+        .mission-caption {
+          font-size: clamp(1.5rem, 1.5vw, 100%);
+          margin-bottom: 1rem;
+        }
+      }
+      .mission-def {
+        text-align: center;
+        font-size: clamp(0.9rem, 1.5vw, 100%);
+        word-break: break-all;
+        font-weight: 400;
+        line-height: 1.2;
+        width: 80%;
+        margin-inline: auto;
       }
     }
   }
@@ -553,6 +603,13 @@ main {
       }
     }
   }
+
+  main .mission-wrapper {
+    min-height: 50vh;
+    .mission {
+      width: 50%;
+    }
+  }
 }
 
 @media all and (min-width: 1024px) and (orientation: landscape) {
@@ -591,6 +648,13 @@ main {
     .reason-section {
       .photo-wrapper {
         height: 40dvh;
+      }
+    }
+
+    .mission-wrapper {
+      height: 80vh;
+      .mission {
+        width: 33%;
       }
     }
   }
