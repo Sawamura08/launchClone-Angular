@@ -7,7 +7,7 @@ import {
   HostListener,
 } from '@angular/core';
 import { ScrollFunctionService } from './services/scroll-function.service';
-import * as Aos from 'aos';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -116,13 +116,13 @@ export class AppComponent implements OnInit {
     const reasonPhoto = this.el.nativeElement.querySelector('.photo.wrapper');
     const reasonList = this.el.nativeElement.querySelector('.reason-wrapper');
 
-    let delay: number = 500;
+    let delay: number = 400;
     services.forEach((service: any) => {
-      this.render.setAttribute(service, 'data-aos-duration', '2000');
+      this.render.setAttribute(service, 'data-aos-duration', '1000');
       this.render.setAttribute(service, 'data-aos-delay', `${(delay += 100)}`);
       this.render.setAttribute(service, 'data-aos', 'fade-up');
     });
 
-    Aos.init();
+    AOS.init();
   };
 }

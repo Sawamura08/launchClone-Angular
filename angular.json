@@ -24,13 +24,9 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/aos/dist/aos.css",
-              "node_modules/animate.css/animate.min.css"
-            ],
+            "styles": ["src/styles.scss", "node_modules/aos/dist/aos.css"],
             "allowedCommonJsDependencies": ["aos"],
-            "scripts": ["node_modules/wowjs/dist/wow.min.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {
