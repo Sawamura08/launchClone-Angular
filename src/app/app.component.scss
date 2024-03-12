@@ -4,6 +4,8 @@
   margin: 0; */
   box-sizing: border-box;
 }
+
+@import "node_modules/aos/src/sass/aos.scss";
 /* variables */
 
 $primaryColor: #0592fd;
@@ -196,7 +198,7 @@ main {
         .title {
           font-size: clamp(2rem, 2.5vw, 4rem);
           background: -webkit-linear-gradient($white, $primaryColor, $white);
-          -webkit-background-clip: text;
+          background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 
@@ -600,6 +602,25 @@ main {
     .reason-section {
       .photo-wrapper {
         height: 40dvh;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1200px) and (orientation: landscape) {
+  main {
+    .reason-section {
+      .photo-wrapper {
+        max-width: 45%;
+        height: 60dvh;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      .reason-wrapper {
+        width: 52%;
       }
     }
   }

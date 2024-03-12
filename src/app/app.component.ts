@@ -7,6 +7,7 @@ import {
   HostListener,
 } from '@angular/core';
 import { ScrollFunctionService } from './services/scroll-function.service';
+import * as Aos from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
     }, 5000); */
 
     this.scrollNav();
+    this.insertScrollAnimation();
   }
 
   isChecked: boolean = false;
@@ -106,4 +108,21 @@ export class AppComponent implements OnInit {
       this.render.removeStyle(nav, 'border-bottom');
     }
   }
+
+  /* scroll animation Function */
+
+  insertScrollAnimation = () => {
+    const services = this.el.nativeElement.querySelectorAll('.services');
+    const reasonPhoto = this.el.nativeElement.querySelector('.photo.wrapper');
+    const reasonList = this.el.nativeElement.querySelector('.reason-wrapper');
+
+    let delay: number = 500;
+    services.forEach((service: any) => {
+      this.render.setAttribute(service, 'data-aos-duration', '2000');
+      this.render.setAttribute(service, 'data-aos-delay', `${(delay += 100)}`);
+      this.render.setAttribute(service, 'data-aos', 'fade-up');
+    });
+
+    Aos.init();
+  };
 }
