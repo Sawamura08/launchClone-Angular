@@ -1,24 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GalleriesService } from '../services/galleries.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent implements OnInit, OnDestroy {
   image: any;
-  constructor(private galleries: GalleriesService) {}
+
+  constructor(
+    private galleries: GalleriesService,
+    private imageSubscription: Subscription
+  ) {}
 
   ngOnInit(): void {
-    this.galleries.getImages().subscribe(
-      (data) => {
+    this.imageSubscription = this.galleries.getImages().subscribe({
+      next: (data) => {
         this.image = data;
-        console.log(this.image);
+        console.log(data);
       },
-      (error) => {
-        console.log('error');
-      }
-    );
+      error: (error) => {
+        console.log('error' + error);
+      },
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.imageSubscription) this.imageSubscription.unsubscribe();
   }
 }
