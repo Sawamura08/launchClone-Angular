@@ -1,0 +1,36 @@
+{
+  "'images'": [
+    {
+      "id": 1,
+      "path": "assets/img/gallery/img1.jpg"
+    },
+    {
+      "id": 2,
+      "path": "assets/img/gallery/img2.jpg"
+    },
+    {
+      "id": 3,
+      "path": "assets/img/gallery/img3.jpg"
+    },
+    {
+      "id": 4,
+      "path": "assets/img/gallery/img4.jpg"
+    },
+    {
+      "id": 5,
+      "path": "assets/img/gallery/img5.jpg"
+    },
+    {
+      "id": 6,
+      "path": "assets/img/gallery/img6.jpg"
+    },
+    {
+      "id": 7,
+      "path": "assets/img/gallery/img7.jpg"
+    },
+    {
+      "id": 8,
+      "path": "assets/img/gallery/img8.jpg"
+    }
+  ]
+}

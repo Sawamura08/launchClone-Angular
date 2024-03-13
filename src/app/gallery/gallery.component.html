@@ -1,0 +1,12 @@
+<section class="gallery-wrapper p-8 my-8">
+  <header class="gallery">
+    <h1>Gallery</h1>
+    <h3>Transforming visions into reality</h3>
+  </header>
+  <div class="picture-grid" *ngIf="image">
+    <figure *ngFor="let img of image.images | keyvalue">
+      <p>{{ img.key }}</p>
+      <p>{{ img.value }}</p>
+    </figure>
+  </div>
+</section>
