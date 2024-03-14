@@ -9,11 +9,9 @@ import { Subscription } from 'rxjs';
 })
 export class GalleryComponent implements OnInit, OnDestroy {
   image: any;
+  imageSubscription!: Subscription;
 
-  constructor(
-    private galleries: GalleriesService,
-    private imageSubscription: Subscription
-  ) {}
+  constructor(private galleries: GalleriesService) {}
 
   ngOnInit(): void {
     this.imageSubscription = this.galleries.getImages().subscribe({
@@ -22,7 +20,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
         console.log(data);
       },
       error: (error) => {
-        console.log('error' + error);
+        console.log(error);
       },
     });
   }

@@ -51,7 +51,11 @@
               Service
             </button>
           </li>
-          <li><a href="#" class="links">Mission</a></li>
+          <li>
+            <a href="#" class="links" (click)="smoothScroll('#mission')"
+              >Mission</a
+            >
+          </li>
           <li><a href="#" class="links">Gallery</a></li>
           <li><a href="#" class="links">Goals</a></li>
           <li><a href="#" class="links">Blogs</a></li>
@@ -170,7 +174,10 @@
           </button>
         </div>
       </section>
-      <section class="reason-section flex flex-wrap flex-col p-4 gap-4">
+      <section
+        class="reason-section flex flex-wrap flex-col p-4 gap-4"
+        id="mission"
+      >
         <div
           class="photo-wrapper"
           data-aos="fade-left"
