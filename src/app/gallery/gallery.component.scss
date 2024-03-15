@@ -7,39 +7,52 @@
     margin-bottom: 2rem;
 
     h1 {
-      font-size: clamp(2rem, 1.5vw, 2vw);
+      font-size: clamp(2rem, 4vw, 5vw);
+      text-shadow: 0 0 5px $primaryColor, 0 0 5px $primaryColor;
       color: $primaryColor;
       font-weight: 500;
     }
     h3 {
-      font-size: clamp(0.8rem, 1.25vw, 2vw);
+      font-size: clamp(0.8rem, 1.5vw, 2vw);
       color: $secondaryColor;
       text-transform: uppercase;
     }
   }
 
   .picture-grid {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 2rem;
 
-    figure {
+    div {
       overflow: hidden;
       position: relative;
       display: inline-block;
-      img {
-        width: 100%;
-        height: 15rem;
-        object-fit: cover;
-        cursor: pointer;
-
+      figure {
         transition: all 0.5s ease-in-out;
 
         &:hover {
           transform: scale(1.2);
           filter: brightness(120%);
         }
+        img {
+          width: 100%;
+          height: 15rem;
+          object-fit: cover;
+          cursor: pointer;
+        }
       }
+    }
+  }
+}
+
+@media all and (min-width: 1024px) and (orientation: landscape) {
+  .gallery-wrapper {
+    .picture-grid {
+      width: 80%;
+      margin-inline: auto;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
   }
 }

@@ -1,11 +1,24 @@
 <section class="gallery-wrapper p-8 my-8 w-full">
-  <header class="gallery">
+  <header
+    class="gallery fade-up"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-delay="500"
+  >
     <h1>Gallery</h1>
     <h3>Transforming visions into reality</h3>
   </header>
   <div class="picture-grid" *ngIf="image">
-    <figure *ngFor="let img of image.images">
-      <img [src]="img.path" alt="Image" />
-    </figure>
+    <div class="" *ngFor="let img of image.images">
+      <figure>
+        <img
+          [src]="img.path"
+          alt="Image"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="800"
+        />
+      </figure>
+    </div>
   </div>
 </section>

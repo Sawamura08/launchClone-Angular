@@ -123,6 +123,8 @@ export class AppComponent implements OnInit {
       this.render.setAttribute(service, 'data-aos', 'fade-up');
     });
 
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
   };
 }
