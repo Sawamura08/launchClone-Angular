@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
-  declarations: [AppComponent, GalleryComponent],
+  declarations: [AppComponent, GalleryComponent, TimelineComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

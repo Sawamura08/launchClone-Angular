@@ -52,11 +52,15 @@
             </button>
           </li>
           <li>
-            <a href="#" class="links" (click)="smoothScroll('#mission')"
-              >Mission</a
-            >
+            <button class="links" (click)="smoothScroll('#mission')">
+              Mission
+            </button>
           </li>
-          <li><a href="#" class="links">Gallery</a></li>
+          <li>
+            <button class="links" (click)="smoothScroll('#gallery')">
+              Gallery
+            </button>
+          </li>
           <li><a href="#" class="links">Goals</a></li>
           <li><a href="#" class="links">Blogs</a></li>
           <li><a href="#" class="links">Contact Us</a></li>
@@ -174,10 +178,7 @@
           </button>
         </div>
       </section>
-      <section
-        class="reason-section flex flex-wrap flex-col p-4 gap-4"
-        id="mission"
-      >
+      <section class="reason-section flex flex-wrap flex-col p-4 gap-4">
         <div
           class="photo-wrapper"
           data-aos="fade-left"
@@ -225,7 +226,7 @@
           </div>
         </div>
       </section>
-      <div class="mission-wrapper p-4 my-4 flex flex-wrap">
+      <section class="mission-wrapper p-4 my-4 flex flex-wrap" id="mission">
         <div class="mission">
           <figure class="mission-icon">
             <i class="fa-solid fa-handshake"></i>
@@ -265,8 +266,11 @@
             clients. we serve and contributing to their long-term prosperity...
           </p>
         </div>
-      </div>
+      </section>
       <app-gallery></app-gallery>
+      <section class="timeline-wrapper w-full p-4 my-8">
+        <app-timeline></app-timeline>
+      </section>
     </main>
   </body>
 </html>

@@ -18,14 +18,7 @@ export class ScrollFunctionService {
     });
   };
 
-  private handlingHomeScroll = () => {
-    window.addEventListener('scroll', () => {
-      const isHomeScrolled = window.scrollY > 100;
-      this.homeScrollSubject.next(isHomeScrolled);
-    });
-  };
   constructor() {
     this.handlingScroll();
-    this.handlingHomeScroll;
   }
 }

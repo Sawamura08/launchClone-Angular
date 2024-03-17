@@ -1,0 +1,38 @@
+@use "../app.component.scss" as *;
+
+.timeline-contents {
+  h1,
+  h3 {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 2vw, 3vw);
+    color: $primaryColor;
+  }
+
+  h3 {
+    font-size: clamp(1rem, 1.5vw, 2vw);
+    color: $secondaryColor;
+  }
+
+  .timeline {
+    gap: 1rem;
+    position: relative;
+
+    .container {
+      width: 100%;
+      display: flex;
+
+      &.left {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      &.right {
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+    }
+  }
+}
