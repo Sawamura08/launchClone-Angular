@@ -10,6 +10,7 @@
 
 $primaryColor: #0592fd;
 $secondaryColor: #cd8150;
+$cardColor: #f5f5f5;
 $white: #ffffff;
 $headerFonts: "Roboto Condensed", sans-serif;
 
@@ -494,7 +495,7 @@ main {
     .photo-wrapper {
       max-width: 80%;
       margin-inline: auto;
-      height: 60dvh;
+      height: 50dvh;
 
       figure {
         max-width: 80%;
