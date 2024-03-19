@@ -18,11 +18,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   image: any;
   imageSubscription!: Subscription;
 
-  constructor(
-    private galleries: GalleriesService,
-    private el: ElementRef,
-    private renderer: Renderer2
-  ) {}
+  constructor(private galleries: GalleriesService) {}
 
   ngOnInit(): void {
     this.imageSubscription = this.galleries.getImages().subscribe({

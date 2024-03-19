@@ -153,7 +153,8 @@
             margin-inline-start: 3%;
 
             .arrow {
-              left: 18.5rem;
+              right: -2rem;
+              left: unset;
               border-left: 15px solid #d5d5d5d5;
               border-right: 15px solid transparent;
             }
@@ -164,6 +165,20 @@
           .content-wrapper {
             margin-inline-end: 3%;
           }
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .timeline-contents {
+    .timeline {
+      .container {
+        width: 80%;
+        margin-inline: auto;
+        .content-wrapper {
+          width: 40%;
         }
       }
     }
