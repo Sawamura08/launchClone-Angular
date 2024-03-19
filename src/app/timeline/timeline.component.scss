@@ -43,6 +43,7 @@
         padding: 1rem;
         text-align: center;
         box-shadow: 0px 0px 5px 2px #ccc;
+        border-radius: 8px;
 
         .content {
           h1 {
@@ -80,28 +81,89 @@
         .line-container {
           position: absolute;
           width: 3px;
-          background-color: black;
+          background-color: #ccc;
           height: 15rem;
-          top: 10%;
+          top: 0;
           left: 10%;
           transition: all 0.8s ease-in-out;
 
           &:hover {
-            box-shadow: inset 0 200px 0px 0px red;
+            box-shadow: inset 0 250px 0px 0px $primaryColor;
           }
 
           .button {
             position: absolute;
             top: 0;
-            left: -1.25rem;
+            left: -1.4rem;
             width: 3rem;
             height: 3rem;
             border-radius: 50%;
-            background-color: black;
+            background-color: $cardColor;
+            border: 3px solid $primaryColor;
+            box-shadow: inset 0 0 5px 2px #ccc;
+            cursor: pointer;
           }
         }
+
         .content-wrapper {
           width: 80%;
+          position: relative;
+
+          .arrow {
+            position: absolute;
+            top: 0.5rem;
+            left: -1rem;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 15px solid #d5d5d5d5;
+          }
+        }
+
+        &:last-child {
+          .line-container {
+            height: 11.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 768px) {
+  .timeline-contents {
+    .timeline {
+      margin-block: 2rem;
+      .container {
+        margin-block: 0;
+        &.left {
+          justify-content: flex-start;
+        }
+        .line-container {
+          left: 50%;
+        }
+
+        .content-wrapper {
+          width: 40%;
+        }
+
+        &:nth-child(odd) {
+          .content-wrapper {
+            margin-inline-start: 3%;
+
+            .arrow {
+              left: 18.5rem;
+              border-left: 15px solid #d5d5d5d5;
+              border-right: 15px solid transparent;
+            }
+          }
+        }
+
+        &:nth-child(even) {
+          .content-wrapper {
+            margin-inline-end: 3%;
+          }
         }
       }
     }
