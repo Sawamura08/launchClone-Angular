@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TimelineComponent } from './timeline/timeline.component';
+import { GoalsComponent } from './goals/goals.component';
 
 @NgModule({
-  declarations: [AppComponent, GalleryComponent, TimelineComponent],
+  declarations: [AppComponent, GalleryComponent, TimelineComponent, GoalsComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,33 @@
+@use "../app.component.scss" as *;
+
+.goal-contents {
+  width: 100%;
+
+  .testimony-wrapper {
+    header {
+      text-align: center;
+      margin-block-end: 2rem;
+      line-height: 1.25;
+      h1 {
+        color: $primaryColor;
+        font-size: clamp(1.25rem, 1.5vw, 2vw);
+      }
+
+      h3 {
+        color: $secondaryColor;
+        font-size: clamp(1rem, 1vw, 1.5vw);
+        text-transform: uppercase;
+      }
+    }
+
+    .cards-wrapper {
+      min-width: 100%;
+      display: flex;
+      overflow: scroll;
+
+      .card {
+        min-width: 100vw;
+      }
+    }
+  }
+}
