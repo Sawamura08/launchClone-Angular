@@ -28,28 +28,45 @@ export class GoalsComponent implements OnInit {
     });
   };
 
+  currentIndex: number = 0;
+
+  slideComment = (current: number) => {
+    this.currentIndex = current;
+    const cards = this.el.nativeElement.querySelectorAll('.card');
+    const icons = this.el.nativeElement.querySelectorAll('.fa-circle');
+    const translateVal =
+      this.el.nativeElement.querySelector('.cards-wrapper').offsetWidth;
+    console.log(translateVal);
+    cards.forEach((card: any, index: number) => {
+      const icon = icons[index];
+
+      if (index === this.currentIndex) {
+        this.renderer.setStyle(icon, 'color', '#0592fd');
+      } else {
+        this.renderer.setStyle(icon, 'color', '#ccc');
+      }
+      this.renderer.setStyle(
+        card,
+        'transform',
+        `translateX(-${this.currentIndex * translateVal}px)`
+      );
+    });
+  };
+
   windowSize = (): void => {
     const viewportWindow: number = window.innerWidth;
 
     if (viewportWindow < 780) {
-      console.log("don't run");
+      /* setInterval(() => {
+        this.slideComment(this.currentIndex);
+        if (this.currentIndex < 2) {
+          this.currentIndex++;
+        } else {
+          this.currentIndex = 0;
+        }
+      }, 7000); */
     } else {
-      console.log('run function');
+      console.log('dont run function');
     }
-  };
-
-  currentIndex: number = 0;
-  slideComment = (current: number) => {
-    this.currentIndex = current;
-    const cards = this.el.nativeElement.querySelectorAll('.card');
-    console.log(this.currentIndex);
-
-    cards.forEach((card: any, index: number) => {
-      this.renderer.setStyle(
-        card,
-        'transform',
-        `translateX(-${this.currentIndex * 111}%)`
-      );
-    });
   };
 }

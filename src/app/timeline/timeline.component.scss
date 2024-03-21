@@ -77,6 +77,8 @@
 
     .timeline {
       .container {
+        width: 80%;
+        margin-inline: auto;
         position: relative;
         .line-container {
           position: absolute;
@@ -136,6 +138,7 @@
     .timeline {
       margin-block: 2rem;
       .container {
+        width: 100%;
         margin-block: 0;
         &.left {
           justify-content: flex-start;
