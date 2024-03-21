@@ -23,9 +23,9 @@ export class AppComponent implements OnInit {
   title = 'launchClone';
   isScrolled: boolean = false;
   ngOnInit(): void {
-    setInterval(() => {
+    /* setInterval(() => {
       this.slideBg('right');
-    }, 5000);
+    }, 5000); */
 
     this.scrollNav();
     this.insertScrollAnimation();

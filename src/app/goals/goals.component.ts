@@ -9,6 +9,8 @@ export class GoalsComponent implements OnInit {
   constructor(private el: ElementRef, private renderer: Renderer2) {}
   ngOnInit(): void {
     this.starIcons();
+
+    this.windowSize();
   }
 
   starIcons = (): void => {
@@ -23,6 +25,31 @@ export class GoalsComponent implements OnInit {
           star.appendChild(icon);
         }
       }
+    });
+  };
+
+  windowSize = (): void => {
+    const viewportWindow: number = window.innerWidth;
+
+    if (viewportWindow < 780) {
+      console.log("don't run");
+    } else {
+      console.log('run function');
+    }
+  };
+
+  currentIndex: number = 0;
+  slideComment = (current: number) => {
+    this.currentIndex = current;
+    const cards = this.el.nativeElement.querySelectorAll('.card');
+    console.log(this.currentIndex);
+
+    cards.forEach((card: any, index: number) => {
+      this.renderer.setStyle(
+        card,
+        'transform',
+        `translateX(-${this.currentIndex * 111}%)`
+      );
     });
   };
 }
