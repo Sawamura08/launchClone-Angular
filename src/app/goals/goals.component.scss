@@ -2,6 +2,7 @@
 
 .goal-contents {
   width: 100%;
+  margin-block: 2rem;
 
   .testimony-wrapper {
     header {
@@ -129,6 +130,51 @@
   }
 }
 
+.growth-wrapper {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../../assets/img/mission-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin-block-start: 5rem;
+  margin-block-end: 3rem;
+
+  .growth-header {
+    margin-block-end: 1.5rem;
+    h1 {
+      font-size: clamp(1.8rem, 4.5vw, 5.5vw);
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 2vw, 2.5vw);
+    }
+  }
+
+  .growth-contents {
+    margin-block-end: 1rem;
+  }
+
+  .btn {
+    @include buttonTheme();
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    text-transform: capitalize;
+
+    &:hover {
+      @include buttonHover();
+    }
+  }
+}
+
 @media all and (min-width: 480px) {
   .goal-contents {
     .testimony-wrapper {
@@ -161,6 +207,13 @@
       }
     }
   }
+
+  .growth-wrapper {
+    .growth-contents {
+      width: 70%;
+      margin-inline: auto;
+    }
+  }
 }
 
 @media all and (min-width: 1024px) {
@@ -170,6 +223,14 @@
         .card {
           width: 25%;
         }
+      }
+    }
+  }
+
+  .growth-wrapper {
+    .growth-contents {
+      p {
+        font-size: 1.15rem;
       }
     }
   }

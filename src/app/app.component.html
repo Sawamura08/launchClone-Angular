@@ -61,7 +61,11 @@
               Gallery
             </button>
           </li>
-          <li><a href="#" class="links">Goals</a></li>
+          <li>
+            <button class="links" (click)="smoothScroll('#goals')">
+              Goals
+            </button>
+          </li>
           <li><a href="#" class="links">Blogs</a></li>
           <li><a href="#" class="links">Contact Us</a></li>
         </ul>
@@ -271,7 +275,7 @@
       <section class="timeline-wrapper w-full p-4 my-8">
         <app-timeline></app-timeline>
       </section>
-      <section class="goal-wrapper wi-full my-8">
+      <section class="goal-wrapper wi-full my-8" id="goals">
         <app-goals></app-goals>
       </section>
     </main>

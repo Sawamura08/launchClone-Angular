@@ -9,7 +9,12 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { GoalsComponent } from './goals/goals.component';
 
 @NgModule({
-  declarations: [AppComponent, GalleryComponent, TimelineComponent, GoalsComponent],
+  declarations: [
+    AppComponent,
+    GalleryComponent,
+    TimelineComponent,
+    GoalsComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
