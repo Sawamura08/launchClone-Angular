@@ -179,6 +179,24 @@
 }
 
 .news-wrapper {
+  margin-block: 2rem;
+  .news-head {
+    text-align: center;
+    line-height: 1.35;
+    margin-block-end: 3rem;
+
+    h3 {
+      font-size: clamp(1.75rem, 2vw, 3vw);
+      color: $primaryColor;
+      font-family: $headerFonts;
+    }
+
+    h4 {
+      font-size: clamp(1rem, 1.5vw, 2vw);
+      color: $secondaryColor;
+      text-transform: uppercase;
+    }
+  }
   .news {
     width: 100%;
     padding-block: 1rem;
@@ -188,51 +206,61 @@
     justify-content: center;
     gap: 2rem;
 
-    .news-head {
-      text-align: center;
-      line-height: 1.35;
-      margin-block-end: 3rem;
-
-      h3 {
-        font-size: clamp(1.75rem, 2vw, 3vw);
-        color: $primaryColor;
-        font-family: $headerFonts;
-      }
-
-      h4 {
-        font-size: clamp(1rem, 1.5vw, 2vw);
-        color: $secondaryColor;
-        text-transform: uppercase;
-      }
-    }
-
     .news-card {
       width: 100%;
-      background-color: $cardColor;
-      padding-inline: 1.5rem;
-
+      padding-inline: 1rem;
+      height: auto;
       .news-figure {
         width: 100%;
 
+        overflow: hidden;
+
         img {
           width: 100%;
+          transition: all 0.5s ease-in-out;
+          cursor: pointer;
+
+          &:hover {
+            filter: brightness(120%);
+            transform: scale(1.2);
+          }
         }
       }
       .news-items {
-        text-align: center;
         width: 100%;
+        text-align: center;
+        background-color: $cardColor;
+        padding-block-end: 1rem;
+        padding-inline: 0.5rem;
+        width: 100%;
+        height: max(40vh, 100px);
 
         h1 {
           font-size: clamp(1.25rem, 1.5vw, 2.5vw);
-          margin-block: 1.5rem;
+          padding-block-start: 1.5rem;
+          margin-block-end: 1.5rem;
           opacity: 0.8;
         }
 
         p {
           font-size: clamp(0.9rem, 1vw, 1.5vw);
           opacity: 0.5;
-          margin-block-end: 1rem;
         }
+      }
+    }
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    .btn {
+      @include buttonTheme();
+      padding: 0.5rem 2rem;
+      border-radius: 1rem;
+      text-transform: capitalize;
+
+      &:hover {
+        @include buttonHover();
       }
     }
   }
@@ -277,6 +305,24 @@
       margin-inline: auto;
     }
   }
+
+  .news-wrapper {
+    .news {
+      width: 90%;
+      margin-inline: auto;
+      gap: 1rem;
+      .news-card {
+        width: 48%;
+        padding-inline: unset;
+
+        .news-figure {
+          img {
+            aspect-ratio: 4 / 3;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media all and (min-width: 1024px) {
@@ -294,6 +340,17 @@
     .growth-contents {
       p {
         font-size: 1.15rem;
+      }
+    }
+  }
+
+  .news-wrapper {
+    .news {
+      width: 85%;
+      margin-inline: auto;
+      justify-content: space-around;
+      .news-card {
+        width: 30%;
       }
     }
   }

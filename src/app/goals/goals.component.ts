@@ -11,6 +11,8 @@ export class GoalsComponent implements OnInit {
     this.starIcons();
 
     this.windowSize();
+
+    this.newCardAnim();
   }
 
   starIcons = (): void => {
@@ -54,7 +56,6 @@ export class GoalsComponent implements OnInit {
   };
 
   testimonyAnim = () => {
-    console.log('goods');
     const cards = this.el.nativeElement.querySelectorAll('.card');
     let delay: number = 100;
     cards.forEach((card: any, index: number) => {
@@ -68,19 +69,29 @@ export class GoalsComponent implements OnInit {
     const viewportWindow: number = window.innerWidth;
 
     if (viewportWindow < 768) {
-      /* setInterval(() => {
+      setInterval(() => {
         this.slideComment(this.currentIndex);
         if (this.currentIndex < 2) {
           this.currentIndex++;
         } else {
           this.currentIndex = 0;
         }
-      }, 7000); */
+      }, 7000);
 
       console.log('goods');
     } else {
       this.testimonyAnim();
       console.log('dont run function');
     }
+  };
+
+  newCardAnim = () => {
+    const cards = this.el.nativeElement.querySelectorAll('.news-card');
+    let delay: number = 100;
+    cards.forEach((card: any, index: number) => {
+      this.renderer.setAttribute(card, 'data-aos', 'fade-up');
+      this.renderer.setAttribute(card, 'data-aos-duration', '1000');
+      this.renderer.setAttribute(card, 'data-aos-delay', `${(delay += 250)}`);
+    });
   };
 }
