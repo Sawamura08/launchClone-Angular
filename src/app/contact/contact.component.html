@@ -1,31 +1,55 @@
-<section class="w-full contact-wrapper">
+<section class="w-full contact-contents">
   <header class="contact-header">
     <h3>Contact Us</h3>
     <h4>get in touch with us</h4>
   </header>
-  <section class="form-wrapper">
-    <div class="forms">
-      <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput />
-      </mat-form-field>
-    </div>
-    <div class="forms">
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          [formControl]="email"
-          (blur)="updateErrorMessage()"
-          required
-        />
-      </mat-form-field>
-    </div>
-    <div class="forms">
-      <mat-form-field>
-        <mat-label>Write Your Message</mat-label>
-        <textarea matInput></textarea>
-      </mat-form-field>
-    </div>
-  </section>
+  <form action="" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+    <section class="form-wrapper">
+      <div class="forms">
+        <mat-form-field class="input">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            (blur)="errorInputFunc('name')"
+            [formControl]="name"
+            FormControlName="name"
+            required
+          />
+          <mat-error *ngIf="name.invalid">
+            {{ nameRequiredMessage }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="forms">
+        <mat-form-field class="input">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            [formControl]="email"
+            (blur)="updateErrorMessage()"
+            FormControlName="email"
+            required
+          />
+          <mat-error *ngIf="email.invalid">{{ errorMessage }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="forms">
+        <mat-form-field class="textarea">
+          <mat-label>Write Your Message</mat-label>
+          <textarea
+            matInput
+            [formControl]="message"
+            (blur)="errorInputFunc('message')"
+            FormControlName="message"
+            required
+          >
+          </textarea>
+          <mat-error *ngIf="message.invalid"> {{ messageRequired }} </mat-error>
+        </mat-form-field>
+      </div>
+    </section>
+    <section class="button-wrapper">
+      <button class="btn" type="submit">Submit</button>
+    </section>
+  </form>
 </section>

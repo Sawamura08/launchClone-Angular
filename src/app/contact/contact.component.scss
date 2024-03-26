@@ -1,0 +1,101 @@
+@use "../app.component.scss" as *;
+
+.contact-contents {
+  padding: 1rem;
+
+  .contact-header {
+    text-align: center;
+    width: 100%;
+    margin-block-start: 2rem;
+    margin-block-end: 1rem;
+
+    h3 {
+      color: $primaryColor;
+      font-size: clamp(1.75rem, 2vw, 3vw);
+    }
+
+    h4 {
+      color: $secondaryColor;
+      font-size: clamp(1rem, 1.5vw, 2vw);
+      text-transform: uppercase;
+    }
+  }
+
+  .form-wrapper {
+    width: 100%;
+    height: max(50vh, 400px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+
+    .forms {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      mat-form-field {
+        width: 100%;
+        border-radius: 0.5rem;
+        border: 1px solid $primaryColor;
+      }
+
+      .textarea {
+        height: 200px;
+      }
+    }
+  }
+
+  .button-wrapper {
+    display: grid;
+    place-content: center;
+    .btn {
+      @include buttonTheme();
+      padding: 0.5rem 2rem;
+      border-radius: 1rem;
+      text-transform: capitalize;
+
+      &:hover {
+        @include buttonHover();
+      }
+    }
+  }
+}
+
+@media all and (min-width: 768px) {
+  .contact-contents {
+    .contact-header {
+      margin-block-end: 3rem;
+    }
+    .form-wrapper {
+      width: 90%;
+      margin-inline: auto;
+      justify-content: unset;
+      align-content: flex-start;
+      height: max(30vh, 300px);
+      row-gap: 2rem;
+
+      .forms {
+        width: 48%;
+        margin-inline: auto;
+      }
+
+      .forms:not(:last-child) {
+        height: 5rem;
+      }
+
+      .forms:last-child {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .contact-contents {
+    .form-wrapper {
+      width: 80%;
+    }
+  }
+}

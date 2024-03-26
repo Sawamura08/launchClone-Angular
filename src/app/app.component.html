@@ -66,8 +66,16 @@
               Goals
             </button>
           </li>
-          <li><a href="#" class="links">Blogs</a></li>
-          <li><a href="#" class="links">Contact Us</a></li>
+          <li>
+            <button class="links" (click)="smoothScroll('#blogs')">
+              Blogs
+            </button>
+          </li>
+          <li>
+            <button class="links" (click)="smoothScroll('#contact')">
+              Contact Us
+            </button>
+          </li>
         </ul>
       </nav>
       <!-- <div class="alternative-home-btn">
@@ -275,10 +283,10 @@
       <section class="timeline-wrapper w-full p-4 my-8">
         <app-timeline></app-timeline>
       </section>
-      <section class="goal-wrapper wi-full my-8" id="goals">
+      <section class="goal-wrapper wi-full my-8">
         <app-goals></app-goals>
       </section>
-      <section class="goal-wrapper wi-full my-8" id="contact">
+      <section class="contact-wrapper wi-full my-8" id="contact">
         <app-contact></app-contact>
       </section>
     </main>

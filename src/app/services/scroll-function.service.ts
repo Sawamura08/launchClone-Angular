@@ -7,9 +7,9 @@ import { Subject } from 'rxjs';
 export class ScrollFunctionService {
   scrollSubject = new Subject<boolean>();
   scroll$ = this.scrollSubject.asObservable();
-
+  /* 
   homeScrollSubject = new Subject<boolean>();
-  homeScroll$ = this.homeScrollSubject.asObservable();
+  homeScroll$ = this.homeScrollSubject.asObservable(); */
 
   private handlingScroll = () => {
     window.addEventListener('scroll', () => {
