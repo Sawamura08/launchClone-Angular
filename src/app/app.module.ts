@@ -18,6 +18,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ContactComponent } from './contact/contact.component';
     TimelineComponent,
     GoalsComponent,
     ContactComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

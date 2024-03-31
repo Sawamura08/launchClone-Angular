@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { OnDestroy } from '@angular/core';
 import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { EmailValidatorService } from '../services/email-validator.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent {
+export class ContactComponent implements OnDestroy {
   /* email validations */
 
   /* FormControl - is a class provided by Angular's Reactive Forms module. It represents a single input field in a form. */
@@ -24,7 +27,8 @@ export class ContactComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private emailValidator: EmailValidatorService
+    private emailValidator: EmailValidatorService,
+    private cdr: ChangeDetectorRef
   ) {
     this.Observablefunc();
   }
@@ -78,26 +82,85 @@ export class ContactComponent {
 
   data: any;
 
+  // for loading
+  loadingWrapper: boolean = true;
+  invalid: boolean = false;
+  lodingCardText = 'loading';
+  valid: boolean = false;
+
+  /* ! - is for setting that this vairable will be not null or undefined  */
+  /* note that Subscription is needed for ngDestroy */
+  apiSubscription!: Subscription;
+  loading: boolean = false;
+
   messageForm = this.formBuilder.group({
     fullName: this.name,
     email: this.email,
     fullMessage: this.message,
   });
   onSubmit = (): void => {
+    // check if the email is valid
     if (this.messageForm.valid) {
       this.emailValidator.getEmail(
         this.messageForm.value.email ? this.messageForm.value.email : ''
       );
-      this.apiData();
+
+      this.sendEmail();
     } else {
     }
     /* this.messageForm.reset(); */
   };
 
-  apiData = (): void => {
-    this.emailValidator.getApiData().subscribe((data) => {
-      this.data = data.is_valid_format.value;
-      console.log(this.data);
+  // function for getting the data of API
+  apiData = () => {
+    // return promise is needed for me to use the await since the promise must return a value that the promise is resolve or rejected
+    return new Promise((resolve, reject) => {
+      this.apiSubscription = this.emailValidator.getApiData().subscribe({
+        next: (data) => {
+          this.data = data.deliverability;
+          this.isEmailValid(this.data);
+          resolve('solve');
+        },
+        error: (error) => {
+          console.log(error);
+          reject('Email is Invalid');
+        },
+      });
     });
+  };
+
+  ngOnDestroy(): void {
+    this.apiSubscription.unsubscribe();
+  }
+
+  // async will be called to run the loading then call the apidata then wait until it finished then call the finally;
+  async sendEmail() {
+    try {
+      this.loading = true;
+      const result = await this.apiData();
+
+      // checking if the result in promise is resolve or rejected
+      if (result === 'solve') {
+        console.log('goods');
+      } else {
+        console.log('blee');
+      }
+    } finally {
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
+      window.location.reload();
+    }
+  }
+
+  isEmailValid = (type: string) => {
+    this.loadingWrapper = false;
+    if (type === 'DELIVERABLE') {
+      this.valid = true;
+      this.lodingCardText = 'Email is valid!';
+    } else {
+      this.invalid = true;
+      this.lodingCardText = 'Email is Invalid!';
+    }
   };
 }

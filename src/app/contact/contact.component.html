@@ -52,4 +52,21 @@
       <button class="btn" type="submit">Submit</button>
     </section>
   </form>
+  <section class="loader-wrapper" *ngIf="loading">
+    <div class="loader-card">
+      <!-- loading -->
+      <div class="loading" *ngIf="loadingWrapper"></div>
+
+      <!-- email is valid -->
+      <div class="valid" *ngIf="valid">
+        <i class="fa-solid fa-check icon"></i>
+      </div>
+
+      <!-- email is invalid -->
+      <div class="not-valid" *ngIf="invalid">
+        <i class="fa-solid fa-xmark icon"></i>
+      </div>
+      <p>{{ lodingCardText }}</p>
+    </div>
+  </section>
 </section>

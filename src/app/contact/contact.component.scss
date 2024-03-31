@@ -2,6 +2,7 @@
 
 .contact-contents {
   padding: 1rem;
+  position: relative;
 
   .contact-header {
     text-align: center;
@@ -58,6 +59,66 @@
 
       &:hover {
         @include buttonHover();
+      }
+    }
+  }
+
+  .loader-wrapper {
+    width: 100%;
+    .loader-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 12rem;
+      height: 8rem;
+      border-radius: 8px;
+      box-shadow: 0 0 8px $primaryColor;
+      background-color: white;
+      z-index: 1;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .loading {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        border: 2px solid $primaryColor;
+        border-left-color: transparent;
+        animation: loading 0.8s linear infinite;
+        margin-block-end: 1rem;
+      }
+
+      @keyframes loading {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+    }
+
+    .not-valid {
+      .icon {
+        color: #e63946;
+        font-size: 2rem;
+        margin-block-end: 0.5rem;
+      }
+    }
+
+    .valid {
+      .icon {
+        color: #29bf12;
+        font-size: 2rem;
+        margin-block-end: 0.5rem;
       }
     }
   }
