@@ -9,28 +9,196 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
 
-  display: flex;
-  flex-direction: column;
-  color: $white;
+  display: grid;
+  place-content: center;
 
-  .launch-wrapper {
+  .container {
+    display: flex;
+    flex-direction: column;
+    color: $white;
     width: 100%;
-    .head {
-      width: 55%;
-      display: flex;
-      justify-content: space-between;
-      margin-block-end: 1rem;
+    .launch-wrapper {
+      width: 100%;
+      .head {
+        width: 100%;
+        display: flex;
+        margin-block-end: 1rem;
+        gap: 1rem;
 
-      figure {
-        img {
-          width: clamp(3rem, 5vw, 7vw);
+        figure {
+          img {
+            width: clamp(3rem, 4vw, 5vw);
+          }
+        }
+
+        h1 {
+          line-height: 2.5;
+          font-size: clamp(1.5rem, 2vw, 2.5vw);
+          color: $primaryColor;
         }
       }
 
-      h1 {
-        line-height: 2;
-        font-size: clamp(1.5rem, 2vw, 2.5vw);
-        color: $primaryColor;
+      .launch-contents {
+        margin-block: 1rem;
+        p {
+          font-size: clamp(0.9rem, 1vw, 1.5vw);
+          font-family: $headerFonts;
+        }
+
+        .icon-wrapper {
+          margin-block: 1rem;
+          width: 100%;
+          display: flex;
+          gap: 1rem;
+
+          .icons {
+            i {
+              cursor: pointer;
+              transition: all 0.4s ease-in-out;
+
+              &:hover {
+                color: $primaryColor;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .contact-wrapper {
+      width: 100%;
+      margin-block-end: 2rem;
+      .head {
+        width: 100%;
+        margin-block-end: 1rem;
+        h1 {
+          color: $primaryColor;
+          font-size: clamp(1.5rem, 2vw, 2.5vw);
+        }
+      }
+
+      .contact-contents {
+        width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+
+        .contact-info {
+          width: 100%;
+
+          h5 {
+            font-size: clamp(1rem, 1.2vw, 1.7vw);
+          }
+
+          h6 {
+            font-size: clamp(0.9rem, 1.2vw, 1.7vw);
+            span {
+              color: $primaryColor;
+              margin-inline-end: 0.5rem;
+            }
+          }
+
+          .directions {
+            color: $primaryColor;
+            font-size: 1rem;
+            text-transform: capitalize;
+            transition: all 0.4s ease-in-out;
+
+            &:hover {
+              color: #48acf8;
+            }
+          }
+        }
+
+        .contact-info:first-child {
+          h6 {
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.copyright-wrapper {
+  width: 100%;
+  background-color: $primaryColor;
+  color: $white;
+  height: 4rem;
+  padding: 1rem;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+
+  .copyright {
+    width: 100%;
+
+    h3 {
+      font-size: clamp(1rem, 1.2vw, 1.5vw);
+    }
+  }
+
+  .copyright:last-child {
+    display: none;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .footer-contents {
+    .container {
+      width: 90%;
+      margin-inline: auto;
+    }
+  }
+
+  .copyright-wrapper {
+    .copyright:first-child {
+      width: 90%;
+      margin-inline: auto;
+    }
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .footer-contents {
+    height: 50vh;
+    .container {
+      flex-direction: row;
+
+      .launch-wrapper {
+        width: 35%;
+      }
+
+      .contact-wrapper {
+        width: 65%;
+
+        .contact-contents {
+          gap: 1rem;
+          .contact-info {
+            width: 30%;
+          }
+        }
+      }
+    }
+  }
+
+  .copyright-wrapper {
+    .copyright:first-child {
+      h3 {
+        margin-inline-start: 3.8rem;
+      }
+    }
+    .copyright:last-child {
+      display: block;
+
+      .link-wrapper {
+        width: 90%;
+        margin-inline: auto;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
       }
     }
   }

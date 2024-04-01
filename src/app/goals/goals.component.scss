@@ -210,6 +210,7 @@
       width: 100%;
       padding-inline: 1rem;
       height: auto;
+
       .news-figure {
         width: 100%;
 
@@ -234,6 +235,7 @@
         padding-inline: 0.5rem;
         width: 100%;
         height: max(40vh, 100px);
+        margin-block-end: 2rem;
 
         h1 {
           font-size: clamp(1.25rem, 1.5vw, 2.5vw);
@@ -322,6 +324,7 @@
         }
         .news-items {
           height: max(25vh, 100px);
+          margin-block-end: 1rem;
         }
       }
     }
@@ -357,6 +360,7 @@
 
         .news-items {
           height: max(50vh, 200px);
+          margin-block-end: unset;
         }
       }
     }
